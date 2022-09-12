@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+<style>
+  img {
+  height: 300px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin: 20px;
+}
+
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 80%;
+  color: White;
+  font-size: 20px; 
+}
+
+   .gfg {
+            margin: 3%;
+            position: relative;
+        }
+  
+  
+.second-txt {
+  position: absolute;
+  bottom: 20px;
+  color: Red;
+  font-size: 25px; 
+  left: 140px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Foto de gato</h1>
+    <div class="gfg">
+
+   <img id="photo" src="https://thecatapi.com/api/images/get?format=src" alt="">
+     <h3 class="second-txt"><b>busco amor</b>
+       
+     </h3>
+  </div>
+  <button id="btn">Gerar foto gato</button>
+</div>
+
+<script>
+  var btn = document.querySelector("#btn");
+var img = document.querySelector("#photo");
+
+btn.addEventListener("click", function() {
+  var XHR = new XMLHttpRequest();
+  
+  XHR.onreadystatechange = function() {
+    if (XHR.readyState == 4 && XHR.status == 200) {
+      img.src = JSON.parse(XHR.responseText).file;  
+    }
+  }
+  XHR.open("GET", "https://aws.random.cat/meow");
+  XHR.send();
+});
+</script>
+
+</body>
+  
+</html>
