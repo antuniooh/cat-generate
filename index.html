@@ -2,75 +2,58 @@
 <html>
   
 <head>
-<style>
-  img {
-  height: 300px;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-button {
-  margin: 20px;
-}
-
-
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 80%;
-  color: White;
-  font-size: 20px; 
-}
-
-   .gfg {
-            margin: 3%;
-            position: relative;
-        }
-  
-  
-.second-txt {
-  position: absolute;
-  bottom: 20px;
-  color: Red;
-  font-size: 25px; 
-  left: 140px;
-}
-
-</style>
+  <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="icon.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Gato do dia</title>
+    <meta content= "Todo dia um gato para alegrar o seu dia!" name="description">
 </head>
 <body>
 
-<div class="container">
-  <h1>Foto de gato</h1>
-    <div class="gfg">
+  <div class="App">
+    <div class="App-header">
+      <h1>Foto de gato</h1>
+      <p>Esse site consiste num gerador de imagens de gatinho. Basta inserir a frase e solicitar a imagem</p>
+    </div>
 
-   <img id="photo" src="https://thecatapi.com/api/images/get?format=src" alt="">
-     <h3 class="second-txt"><b>busco amor</b>
-       
-     </h3>
+    <div class="App-image-disable" id="imageCatDisplay">
+    <img id="photo" alt="">
+      <h3 class="second-txt" id="textCatImage"><b></b></h3>
+    </div>
+
+    <div class="App-header">
+      <input name="labelCat" type="text" maxlength="512" id="catTxt" class="searchField"/>
+      <br/><br/>
+      <button id="btn">Gerar imagem!</button>
+    </div>
   </div>
-  <button id="btn">Gerar foto gato</button>
-</div>
 
 <script>
   var btn = document.querySelector("#btn");
-var img = document.querySelector("#photo");
+  var img = document.querySelector("#photo");
 
-btn.addEventListener("click", function() {
-  var XHR = new XMLHttpRequest();
-  
-  XHR.onreadystatechange = function() {
-    if (XHR.readyState == 4 && XHR.status == 200) {
-      img.src = JSON.parse(XHR.responseText).file;  
+  btn.addEventListener("click", function() {
+    var input = document.getElementById("catTxt").value;
+
+    var XHR = new XMLHttpRequest();
+    
+    XHR.onreadystatechange = function() {
+      if (XHR.readyState == 4 && XHR.status == 200) {
+        img.src = JSON.parse(XHR.responseText).file;  
+      }
     }
-  }
-  XHR.open("GET", "https://aws.random.cat/meow");
-  XHR.send();
-});
+    XHR.open("GET", "https://aws.random.cat/meow");
+    XHR.send();
+    document.getElementById("textCatImage").innerText=input;
+
+    // change class view image
+    document.getElementById("imageCatDisplay").className = "App-image"
+
+  });
 </script>
 
 </body>
