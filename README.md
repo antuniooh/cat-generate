@@ -14,7 +14,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/antuniooh/personal-library">
-    <img src="https://aventurasnahistoria.uol.com.br/media/_versions/machado_de_assis_widelg.jpg" alt="Logo" width="550">
+    <img src="https://pbs.twimg.com/media/FnMYbEmWYAckDSg.jpg" alt="Logo" width="550">
   </a>
 </p>
 
