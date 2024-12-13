@@ -3,6 +3,14 @@ html {
     -webkit-text-size-adjust: 100%;
     height: 100%;
   }
+
+  img {
+    max-width:90%;
+    max-height:90%;
+    height: auto; 
+    width: auto; 
+    position: absolute;
+  }
   
   #root, body, html {
     width: 100%;
@@ -51,7 +59,7 @@ html {
   }
   
   
-  .App-header h2{
+  .App-header h3{
     font-size: calc(15px + 2vmin);
     max-width: 70vw;
     font-family: 'Ubuntu', sans-serif;
@@ -60,7 +68,7 @@ html {
 
   .App-header input{
     font-size: calc(15px + 2vmin);
-    max-width: 70vw;
+    max-width: 80vw;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 100;
     outline: none;
@@ -79,6 +87,7 @@ html {
     font-size: 16px;
     font-weight: 600;
     line-height: 1.25;
+    max-width: 80vw;
     padding: calc(.875rem - 1px) calc(1.5rem - 1px);
     text-decoration: none;
   }
@@ -93,8 +102,8 @@ html {
     position: relative;
     bottom: 0;
     left: 0;
-    width: 100vw;
     margin-bottom: 5rem;
+    padding: 3%;
   }
 
   .App-image img{
