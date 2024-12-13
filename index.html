@@ -19,7 +19,7 @@
   <div class="App">
     <div class="App-header">
       <h1>Gato do dia</h1>
-      <p>Esse site consiste num gerador de imagens de gatinho. Basta inserir a frase e solicitar a imagem</p>
+      <p>Esse site consiste num simples gerador de imagens de gatinho. Basta inserir a frase e solicitar a imagem</p>
     </div>
 
     <div class="App-image-disable" id="imageCatDisplay">
@@ -42,15 +42,19 @@
   var btnDownload = document.querySelector("#btnDownload");
 
   btn.addEventListener("click", async function() {
+    document.getElementById("imageCatDisplay").className = "App-image"
+
     var input = document.getElementById("catTxt").value;
     const url = "https://cataas.com/cat"
 
     img.src = "";
-    document.getElementById("textCatImage").innerText="Estamos buscando sua imagem...";
+    document.getElementById("textCatImage").innerText="buscando a imagem ideal...";
 
     try {
     const response = await fetch(url);
     if (!response.ok) {
+      document.getElementById("textCatImage").innerText="tenta dnv :(";
+
       throw new Error(`Response status: ${response.status}`);
     }
     const blob = await response.blob();
@@ -74,7 +78,7 @@
           useCORS: true,
           onrendered: function(canvas) {
               var myImage = canvas.toDataURL();
-              downloadURI(myImage, "MaSimulation.png");
+              downloadURI(myImage, "gato.png");
         }
       });
   }
@@ -91,7 +95,7 @@
   }
 
   btnDownload.addEventListener("click", function() {
-    PrintDiv(document.getElementById("photo"))
+    PrintDiv(document.getElementById("imageCatDisplay"))
   });
 </script>
 
